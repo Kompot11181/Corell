@@ -2,9 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "src/fasttransforms.h"
-#include "cgraphwindow.h"
-#include "qcustomplot.h"
+#include "cfunction.h"
+#include "calglibcalc.h"
 
 #define LENGTH_OF_SIGNAL 512
 #define LENGTH_OF_PATTERN 128
@@ -20,24 +19,25 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void initGUI();
+public slots:
+    void calculated(QString name, QVector<double> &result);
 
 private slots:
-    void on_pbLoadSignal_clicked();
+    void on_pbRToF_clicked();
+    void on_pbRToG_clicked();
+    void on_pbSwap_clicked();
 
-    void on_pbLoadPattern_clicked();
-
-    void on_pbCalc_clicked();
+    void on_pbCorr_clicked();
 
 private:
-    Ui::MainWindow *ui;                 // окно программы
-    cGraphWindow * _signalWnd;          // окно вывода сигнала
-    cGraphWindow * _patternWnd;         // окно вывода контролькного сигнала
-    cGraphWindow * _resultWnd;          // окно результата
-    bool    _signalIsLoaded;
-    bool    _patternIsLoaded;
-    double _signalArr[LENGTH_OF_SIGNAL];             //
-    double _patternArr[LENGTH_OF_PATTERN];            //
-    double _resultArr[LENGTH_OF_SIGNAL + LENGTH_OF_PATTERN];    //
+    Ui::MainWindow *ui; // окно программы
+    cFunction * _f;     // функиця _f(t)
+    cFunction * _g;     // функиця _g(t)
+    cAlglibCalc * calc; // указатель на экзепляр калькулятора
+    QThread thread;     // отдельный поток для расчёта
+
+
 };
 
 #endif // MAINWINDOW_H

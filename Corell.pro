@@ -8,9 +8,10 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QMAKE_CXXFLAGS += -std=c++11
+
 TARGET = Corell
 TEMPLATE = app
-
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -28,7 +29,9 @@ SOURCES += main.cpp\
     src/specialfunctions.cpp \
     src/statistics.cpp \
     qcustomplot.cpp \
-    cgraphwindow.cpp
+    cgraphwindow.cpp \
+    cfunction.cpp \
+    calglibcalc.cpp
 
 HEADERS  += mainwindow.h \
     src/alglibinternal.h \
@@ -46,7 +49,13 @@ HEADERS  += mainwindow.h \
     src/statistics.h \
     src/stdafx.h \
     qcustomplot.h \
-    cgraphwindow.h
+    cgraphwindow.h \
+    cfunction.h \
+    calglibcalc.h
 
 FORMS    += mainwindow.ui \
-    cgraphwindow.ui
+    cgraphwindow.ui \
+    cfunction.ui
+
+RESOURCES += \
+    source.qrc

@@ -15,29 +15,22 @@ cGraphWindow::~cGraphWindow()
 }
 
 // изменить название окна
-void cGraphWindow::changeHeader(QString str)
+void cGraphWindow::changeTitle(QString str)
 {
     this->setWindowTitle(str);
 }
 
 // изменить номинал параметра
-void cGraphWindow::changeNominal(QString str)
+void cGraphWindow::changeHeader(QString str)
 {
-   ui->lNominal->setText(str);
-}
-
-// изменить подсказку
-void cGraphWindow::changeTooltip(QString str)
-{
-    _plot->setToolTip(str);
-    ui->lNominal->setToolTip(str);
-    ui->lValue->setToolTip(str);
+   ui->lHeader->setText(str);
 }
 
 void cGraphWindow::addValue(double val)
 {
     float value = val;
     _graphic->addData(_graphic->dataCount(), value);
+    ui->textEdit->append(QString("%1").arg(val));
 
     if(!_graphic->selected()) {
         bool ok;

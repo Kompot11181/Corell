@@ -19,15 +19,13 @@ public:
     explicit cGraphWindow(QWidget *parent = 0);
     ~cGraphWindow();
 
-    void changeHeader(QString);         // изменить заголовок окна
-    void changeNominal(QString str);    // изменить значение номинала параметра
-    void changeTooltip(QString str);    // изменить всплывающую подсказку
+    void changeTitle(QString);         // изменить название окна
+    void changeHeader(QString str);    // изменить значение заголовка
 
 public slots:
 
     void addValue(double);
-    void clearPlot() {_graphic->data().clear(); _plot->replot();}
-
+    void clearPlot() {}
 private:
     Ui::cGraphWindow *ui;
     QCPGraph *_graphic;
