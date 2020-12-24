@@ -10,6 +10,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 QMAKE_CXXFLAGS += -std=c++11
 
+# строки для профилирования в gprof (подробнее см. https://www.pvsm.ru/qt-2/10777 )
+QMAKE_CXXFLAGS_DEBUG += -pg
+QMAKE_LFLAGS_DEBUG += -pg
+
 TARGET = Corell
 TEMPLATE = app
 
@@ -51,7 +55,8 @@ HEADERS  += mainwindow.h \
     qcustomplot.h \
     cgraphwindow.h \
     cfunction.h \
-    calglibcalc.h
+    calglibcalc.h \
+    vectordouble.h
 
 FORMS    += mainwindow.ui \
     cgraphwindow.ui \

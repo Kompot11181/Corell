@@ -30,16 +30,16 @@ void cFunction::setName(const QString name)
 }
 
 // возвращает сфоркированный массив, преобразованный из текста
-QVector<double> cFunction::getPoints() const
+VectorDouble cFunction::getPoints() const
 {
-    QVector<double> result;
+    VectorDouble result;
     QString str = ui->tePoints->document()->toPlainText();
     QString splitStr = ";";
     str.replace('\n', splitStr);        // при "crlf" символ \r куда-то пропадает при чтении, поэтому меняем только один символ
     str.replace(' ', splitStr);
     if ( (str.contains(',')) && (str.contains('.')) ) str.replace(',', splitStr);
     if ( str.contains(',') ) str.replace(',', ".");
-    str.remove(QRegExp("[^\\d." + splitStr +"-]"));             // удаляет всё кроме цифр, разделителя дефиса (минуса)
+    str.remove(QRegExp("[^\\d." + splitStr +"-+eE]"));             // удаляет всё кроме цифр, разделителя дефиса (минуса)
     QStringList strList = str.split(splitStr);
     bool ok;
     foreach(QString s, strList) {

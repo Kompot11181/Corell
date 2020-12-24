@@ -2,6 +2,7 @@
 #define CFUNCTION_H
 
 #include <QtWidgets>
+#include "vectordouble.h"
 #include "cgraphwindow.h"
 //#include "qcustomplot.h"
 
@@ -21,7 +22,7 @@ public:
 
     QString name() const {return _name;}
     void setName(const QString name);
-    QVector<double> getPoints() const;
+    VectorDouble getPoints() const;
 
 signals:
     void nameChanged(QString name);

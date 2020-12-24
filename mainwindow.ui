@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>528</height>
+    <width>685</width>
+    <height>557</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,25 +58,50 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QPushButton" name="pbRToF">
-            <property name="text">
-             <string>в f(t)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pbRToG">
-            <property name="text">
-             <string>в g(t)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pbSwap">
-            <property name="text">
-             <string>swap(f,g)</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="1">
+             <widget class="QPushButton" name="pbGtoR">
+              <property name="text">
+               <string>-g(t)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pbFtoR">
+              <property name="text">
+               <string>-f(t)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="pbSwap">
+              <property name="text">
+               <string>swap(f,g)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="pbRevF">
+              <property name="text">
+               <string>f(-t)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="pbRevG">
+              <property name="text">
+               <string>g(-t)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="pbMuliFG">
+              <property name="text">
+               <string>f(t)*g(t)</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <spacer name="horizontalSpacer">
@@ -92,18 +117,56 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pbCorr">
-            <property name="text">
-             <string>corr(f,g)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pbRFFT">
-            <property name="text">
-             <string>rfft(f)</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pbInterCube">
+              <property name="text">
+               <string>in_cube(f, 100)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPushButton" name="pbCorr">
+              <property name="statusTip">
+               <string>corrr1d()</string>
+              </property>
+              <property name="text">
+               <string>corr(f,g)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="pbFFT">
+              <property name="text">
+               <string>fft(f)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QPushButton" name="pbCorrCirc">
+              <property name="statusTip">
+               <string>corrr1dcircular()</string>
+              </property>
+              <property name="text">
+               <string>corrcirc(f,g)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="pbIFFT">
+              <property name="text">
+               <string>ifft(f)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="pbInterMono">
+              <property name="text">
+               <string>in_mono(f, 100)</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <spacer name="horizontalSpacer_2">
@@ -119,11 +182,22 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pbSave">
-            <property name="text">
-             <string>Сохранить в файл</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pbSave">
+              <property name="text">
+               <string>Сохранить в файл</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QCheckBox" name="cbGraph">
+              <property name="text">
+               <string>Вывести график</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
@@ -134,6 +208,16 @@
       </widget>
      </widget>
     </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>10</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -141,7 +225,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>652</width>
+     <width>685</width>
      <height>21</height>
     </rect>
    </property>
